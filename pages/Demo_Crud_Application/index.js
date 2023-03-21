@@ -52,11 +52,11 @@ const Users = () => {
   const EmployeeTable = useTable();
   //get employees
 
-  const fetchdata = async (page = 1) => {
+  const fetchdata = async () => {
     EmployeeTable.setLoading(true);
     const response = await axios.get(`/api/gets`);
     if (response.status === 200 && response.data) {
-      EmployeeTable.setRowData(response.data.data);
+      EmployeeTable.setRowData(response.data);
     } else {
       EmployeeTable.setRowData([]);
     }
@@ -119,6 +119,8 @@ const Users = () => {
                 <Th>Mobile Number</Th>
                 <Th>E-Mail id</Th>
                 <Th>Amount</Th>
+                <Th>Color</Th>
+                <Th>Size</Th>
                 <Th>Actions</Th>
               </Tr>
             </Thead>
@@ -141,6 +143,8 @@ const Users = () => {
                     <Td>{item.mobilenumber}</Td>
                     <Td>{item.emailId}</Td>
                     <Td>{item.amount}</Td>
+                    <Td>{item.color}</Td>
+                    <Td>{item.size}</Td>
                     <Td>
                       <ButtonGroup spacing="1" onClick={() => setId(item._id)}>
                         <Button

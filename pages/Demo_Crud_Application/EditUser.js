@@ -25,7 +25,7 @@ const EditUser = ({ iseditopen, iseditclose, empID, setreload, reload }) => {
   const [errorMessage, seterrorMessage] = useState("");
   useEffect(() => {
     axios
-      .get(`/api.gets_id/${empID}`)
+      .get(`/api/gets_id/${empID}`)
       .then((res) => {
         setEmpdetails(res.data);
       })
